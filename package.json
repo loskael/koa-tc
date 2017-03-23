@@ -1,0 +1,32 @@
+{
+  "name": "koa-tc",
+  "version": "0.0.1",
+  "description": "koa middleware time cost",
+  "main": "index.js",
+  "scripts": {
+    "test": "node-dev test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yorts52/koa-tc.git"
+  },
+  "keywords": [
+    "koa",
+    "middleware",
+    "time",
+    "cost"
+  ],
+  "author": "kael",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yorts52/koa-tc/issues"
+  },
+  "homepage": "https://github.com/yorts52/koa-tc#readme",
+  "devDependencies": {
+    "bluebird": "^3.5.0",
+    "koa": "^2.2.0"
+  },
+  "dependencies": {
+    "uuid": "^3.0.1"
+  }
+}
