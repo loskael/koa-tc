@@ -1,6 +1,6 @@
 {
   "name": "koa-tc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "koa middleware time cost",
   "main": "index.js",
   "scripts": {
