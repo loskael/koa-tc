@@ -13,7 +13,7 @@ app.use(async (ctx, next) => {
   await next();
   const ms = new Date() - start;
   console.log(`0: ${ctx.method} ${ctx.url} - ${ms}ms`);
-});
+}, 'first');
 
 app.use(async (ctx, next) => {
   const start = new Date();
@@ -24,8 +24,8 @@ app.use(async (ctx, next) => {
 });
 
 app.use(async (ctx) => {
-  await Promise.delay(3000);
+  await Promise.delay(300);
   ctx.body = 'Hello Koa';
-});
+}, 'last');
 
 app.listen(3000);

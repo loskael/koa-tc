@@ -4,6 +4,7 @@
 const uuid = require('uuid');
 
 const times = {};
+const names = [];
 
 function init(ctx) {
   if (!ctx.koatcid) {
@@ -33,9 +34,12 @@ function outer(ctx, callback) {
   time.prev += diff;
   time.diff.unshift(diff);
   if (time.list.length === 0 && typeof callback === 'function') {
-    let diffs = time.diff.slice(0);
+    let data = {};
+    time.diff.forEach((diff, idx) => {
+      data[names[idx]] = diff;
+    });
     delete times[ctx.koatcid];
-    callback(diffs);
+    callback(data);
   }
 }
 
@@ -52,7 +56,9 @@ module.exports = function(app, callback) {
   let middlewares = app.middleware;
   if (!middlewares.length) {
     const app_use = app.use;
-    app.use = function(fn) {
+    app.use = function(fn, name) {
+      name = name || fn.name || fn._name || ('index_' + names.length);
+      names.push(name);
       return app_use.call(this, wrap(fn, callback));
     };
   } else {
